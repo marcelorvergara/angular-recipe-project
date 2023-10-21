@@ -22,4 +22,12 @@ export class ShoppinglistService {
     this.ingredients.push(ingredient)
     this.ingridentsChanged.emit(this.ingredients.slice())
   }
+
+  addIngredients(ingredients: Ingredient[]){
+    // for (let ingredient of ingredients){
+    //   this.addIngredient(ingredient)
+    // }
+    this.ingredients.push(...ingredients)
+    this.ingridentsChanged.emit(this.ingredients.slice())
+  }
 }
