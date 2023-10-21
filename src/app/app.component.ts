@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-first-app';
+  name = 'Vergara';
+
+  menuItem: string = 'recipes'
+
+  onMenuSelected(item: string){
+    this.menuItem = item
+  }
 }
