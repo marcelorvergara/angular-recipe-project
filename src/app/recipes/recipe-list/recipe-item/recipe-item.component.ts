@@ -1,6 +1,6 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { Recipe } from '../../recipe.module';
-import { RecipeService } from '../../recipe.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-item',
@@ -10,5 +10,6 @@ import { RecipeService } from '../../recipe.service';
 export class RecipeItemComponent {
 
   @Input() recipe: Recipe
+  @Input() recipeId: number
 
 }
