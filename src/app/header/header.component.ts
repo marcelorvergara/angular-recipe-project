@@ -7,9 +7,4 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Output() selectedMenu = new EventEmitter<string>();
-
-  navigate(menuItem: string) {
-    this.selectedMenu.emit(menuItem)
-  }
 }
