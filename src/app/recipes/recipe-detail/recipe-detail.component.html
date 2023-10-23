@@ -14,7 +14,7 @@
             <button class="btn btn-primary dropdown-toggle">Manage Recipe<span class="caret" data-toggle="dropdown"></span></button>
             <ul class="dropdown-menu" role="menu">
                 <li role="presentation"><a role="menuitem" tabindex="-1" (click)="onAddToShoppingList()" style="cursor: pointer;">Add to Shopping List</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" style="cursor: pointer;">Edit Recipe</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" routerLink="/recipes/{{recipeSelectedItem.id}}/edit" style="cursor: pointer;">Edit Recipe</a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" style="cursor: pointer;">Delete Recipe</a></li>
             </ul>
         </div>
