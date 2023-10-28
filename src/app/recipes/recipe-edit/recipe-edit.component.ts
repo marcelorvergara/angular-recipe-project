@@ -79,7 +79,7 @@ export class RecipeEditComponent implements OnInit {
       this.recipeService.addRecipe(newRecipe)
     }
 
-    this.router.navigate(['/recipes'])
+    this.onCancel()
   }
 
   onAddIngredient() {
@@ -96,6 +96,6 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['/recipes'])
+    this.router.navigate(['../'], { relativeTo: this.route})
   }
 }
