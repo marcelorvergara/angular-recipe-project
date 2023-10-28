@@ -12,6 +12,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppinglistService } from './shopping-list/shoppinglist.service';
 import { AppRoutingModule } from './app-routing.module';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -26,13 +27,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
-
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ShoppinglistService],
   bootstrap: [AppComponent]
