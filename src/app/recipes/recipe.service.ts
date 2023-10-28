@@ -62,4 +62,10 @@ export class RecipeService {
   getIndexValue(): number{
     return Math.max(...this.recipes.map(item => item.id))
   }
+
+  onDelete(id: number) {
+    const newRecipeArray = this.recipes.filter(rec => rec.id !== id)
+    this.recipes = newRecipeArray
+    this.recipesChanged.next(newRecipeArray.slice())
+  }
 }
