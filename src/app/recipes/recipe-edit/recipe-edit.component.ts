@@ -26,7 +26,7 @@ export class RecipeEditComponent implements OnInit {
       (params: Params) => {
         this.id = Number(params['id'])
         // Check if it is in edit mode or in new mode
-        this.editMode = params['id'] !== null
+        this.editMode = params['id'] !== undefined
         this.initForm()
       }
     )
