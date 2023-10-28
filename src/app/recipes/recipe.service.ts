@@ -51,8 +51,11 @@ export class RecipeService {
     this.recipesChanged.next(this.recipes.slice())
   }
 
-  updateRecipe(index: number, recipe: Recipe) {
-    this.recipes[index] = recipe
+  updateRecipe(id: number, recipe: Recipe) {
+    const recipeObj = this.recipes.find(rec => rec.id === id)
+    if (recipeObj) {
+      Object.assign(recipeObj,recipe)
+    }
     this.recipesChanged.next(this.recipes.slice())
   }
 

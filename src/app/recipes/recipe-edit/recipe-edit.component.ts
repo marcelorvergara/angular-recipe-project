@@ -26,7 +26,7 @@ export class RecipeEditComponent implements OnInit {
       (params: Params) => {
         this.id = Number(params['id'])
         // Check if it is in edit mode or in new mode
-        this.editMode = params['id'] != null
+        this.editMode = params['id'] !== null
         this.initForm()
       }
     )
@@ -64,6 +64,7 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onSubmit() {
+
     const newRecipe = new Recipe(
       this.recipeService.getIndexValue() + 1,
       this.recipeForm.value['name'],
@@ -73,6 +74,7 @@ export class RecipeEditComponent implements OnInit {
     )
 
     if (this.editMode) {
+      newRecipe.id = this.id
       this.recipeService.updateRecipe(this.id, newRecipe )
     } else {
       this.recipeService.addRecipe(newRecipe)
@@ -88,6 +90,5 @@ export class RecipeEditComponent implements OnInit {
       })
     )
   }
-
 
 }
