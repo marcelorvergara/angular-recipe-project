@@ -68,4 +68,11 @@ export class RecipeService {
     this.recipes = newRecipeArray
     this.recipesChanged.next(newRecipeArray.slice())
   }
+
+  onDeleteIngredient(id: number, ingredient: string) {
+    const recipe = this.getRecipe(id)
+    const newIngredientsList = recipe.ingredients.filter(f => f.name !== ingredient)
+    recipe.ingredients = newIngredientsList
+    this.updateRecipe(id, recipe)
+  }
 }

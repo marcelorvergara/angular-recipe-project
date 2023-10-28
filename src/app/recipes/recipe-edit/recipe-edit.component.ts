@@ -92,7 +92,10 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onRemoveIngredient(index: number) {
+    // Remove the control
     (<FormArray>this.recipeForm.get('ingredients')).controls.splice(index, 1)
+    // Delete from the ingredients repository
+    this.recipeService.onDeleteIngredient(this.id, (<FormArray>this.recipeForm.get('ingredients')).value[index] )
   }
 
   onCancel() {
