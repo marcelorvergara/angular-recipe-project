@@ -5,11 +5,10 @@ import { ShoppinglistService } from '../shopping-list/shoppinglist.service';
 import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RecipeService {
-
-  recipesChanged = new Subject<Recipe[]>
+  recipesChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -17,56 +16,52 @@ export class RecipeService {
       'A Great Hamburger',
       'This is a simply Hamburger',
       'https://upload.wikimedia.org/wikipedia/commons/6/62/NCI_Visuals_Food_Hamburger.jpg',
-      [
-        new Ingredient('Pão',3),
-        new Ingredient('Carne',1)
-      ]),
+      [new Ingredient('Pão', 3), new Ingredient('Carne', 1)]
+    ),
     new Recipe(
       2,
       'Japonese Food',
       'Good one recipe',
       'https://upload.wikimedia.org/wikipedia/commons/4/4c/Kaiseki_001.jpg',
-      [
-        new Ingredient('Arroz', 3),
-        new Ingredient('Atum', 5)
-      ])
-    ]
+      [new Ingredient('Arroz', 3), new Ingredient('Atum', 5)]
+    ),
+  ];
 
-  constructor(private shoppingListService: ShoppinglistService) { }
+  constructor(private shoppingListService: ShoppinglistService) {}
 
   getRecipes() {
     return this.recipes.slice();
   }
 
   getRecipe(id: number) {
-    return this.recipes.find(recipe => recipe.id === id)
+    return this.recipes.find((recipe) => recipe.id === id);
   }
 
   addIngredientsToSoppingList(ingredients: Ingredient[]) {
-    this.shoppingListService.addIngredients(ingredients)
+    this.shoppingListService.addIngredients(ingredients);
   }
 
   addRecipe(recipe: Recipe) {
-    this.recipes.push(recipe)
-    this.recipesChanged.next(this.recipes.slice())
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
   }
 
   updateRecipe(id: number, recipe: Recipe) {
-    const recipeObj = this.recipes.find(rec => rec.id === id)
+    const recipeObj = this.recipes.find((rec) => rec.id === id);
     if (recipeObj) {
-      Object.assign(recipeObj,recipe)
+      Object.assign(recipeObj, recipe);
     }
-    this.recipesChanged.next(this.recipes.slice())
+    this.recipesChanged.next(this.recipes.slice());
   }
 
-  getIndexValue(): number{
-    return Math.max(...this.recipes.map(item => item.id))
+  getIndexValue(): number {
+    return Math.max(...this.recipes.map((item) => item.id));
   }
 
   onDelete(id: number) {
-    const newRecipeArray = this.recipes.filter(rec => rec.id !== id)
-    this.recipes = newRecipeArray
-    this.recipesChanged.next(newRecipeArray.slice())
+    const newRecipeArray = this.recipes.filter((rec) => rec.id !== id);
+    this.recipes = newRecipeArray;
+    this.recipesChanged.next(newRecipeArray.slice());
   }
 
   // onDeleteIngredient(id: number, ingredient: string) {
