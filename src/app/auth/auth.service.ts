@@ -42,13 +42,23 @@ export class AuthService {
   }
 
   private handleError(errorResp: HttpErrorResponse) {
-    let errorMessage = 'An unknown error occurred!';
+    let errorMessage = 'An unknown error occurred!...';
     if (!errorResp.error || !errorResp.error.error) {
-      return throwError(errorMessage);
+      return throwError(() => errorMessage);
     }
     switch (errorResp.error.error.message) {
       case 'EMAIL_EXISTS':
         errorMessage = 'This email already exists!';
+        break;
+      case 'EMAIL_NOT_FOUND':
+        errorMessage = 'This email was not found or password is incorrect!';
+        break;
+      case 'INVALID_PASSWORD':
+        errorMessage = 'This email was not found or password is incorrect!';
+        break;
+      case 'INVALID_LOGIN_CREDENTIALS':
+        errorMessage = 'This email was not found or password is incorrect!';
+        break;
     }
     return throwError(() => errorMessage);
   }

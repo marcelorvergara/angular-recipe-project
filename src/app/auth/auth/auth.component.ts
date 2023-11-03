@@ -47,8 +47,9 @@ export class AuthComponent {
         this.isLoading = false;
       },
       complete: () => {
-        console.info('complete');
+        console.info('complete...');
         this.isLoading = false;
+        this.error = null;
       },
     });
 
