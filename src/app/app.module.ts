@@ -18,7 +18,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AuthComponent } from './auth/auth/auth.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
-import { AlertComponent } from './alert/alert.component';
+import { AlertComponent } from './shared/alert/alert.component';
+import { PlaceHolderDirective } from './shared/placeholder/placeholder.directive';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AlertComponent } from './alert/alert.component';
     LoadingSpinnerComponent,
     AuthComponent,
     AlertComponent,
+    PlaceHolderDirective,
   ],
   imports: [
     BrowserModule,
